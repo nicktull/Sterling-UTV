@@ -1,8 +1,12 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --primary: #ff8800;
+  --primary-dark: #ff7700;
+  --surface: #212529;
+  --surface-alt: #343a40;
+  font-family: 'Montserrat', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   color: #f8f9fa;
-  background-color: #212529;
+  background-color: var(--surface);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -10,18 +14,19 @@
 }
 
 a {
-  color: #ff8800;
+  color: var(--primary);
   text-decoration: none;
+  transition: color 0.2s;
 }
 a:hover {
-  color: #ff7700;
+  color: var(--primary-dark);
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #212529;
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-alt) 100%);
 }
 
 h1 {
@@ -36,11 +41,12 @@ button {
   font-size: 1rem;
   font-weight: 500;
   font-family: inherit;
-  background-color: #ff8800;
-  color: #212529;
+  background-color: var(--primary);
+  color: var(--surface);
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.2s;
 }
 button:hover {
-  background-color: #ff7700;
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
 }

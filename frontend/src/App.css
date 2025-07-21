@@ -2,7 +2,8 @@
   max-width: 960px;
   margin: 0 auto;
   padding: 2rem;
-  background-color: #343a40;
+  background-color: var(--surface-alt);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
 nav.nav {
@@ -24,20 +25,37 @@ nav.nav {
 }
 
 nav.nav button {
-  background-color: #495057;
+  background-color: var(--surface);
   color: #f8f9fa;
   border: 1px solid #6c757d;
   padding: 0.5rem 1rem;
+  transition: background-color 0.2s, transform 0.2s;
+}
+nav.nav button:hover {
+  background-color: var(--surface-alt);
+  transform: translateY(-2px);
 }
 
 nav.nav button.active {
-  background-color: #ff8800;
-  color: #212529;
-  border-color: #ff8800;
+  background-color: var(--primary);
+  color: var(--surface);
+  border-color: var(--primary);
 }
 
 main {
   text-align: left;
+  animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 section {
@@ -52,9 +70,15 @@ ul {
 li {
   margin-bottom: 1rem;
   padding: 0.75rem;
-  background-color: #343a40;
+  background-color: var(--surface-alt);
   border: 1px solid #495057;
   border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 input[type='text'] {
@@ -66,15 +90,31 @@ input[type='text'] {
   border-radius: 4px;
   background-color: #495057;
   color: #f8f9fa;
+  transition: box-shadow 0.2s;
+}
+input[type='text']:focus {
+  box-shadow: 0 0 0 2px var(--primary);
+  outline: none;
 }
 
 .site-title {
   text-align: center;
   margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, var(--primary), #ffd280);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 header {
   margin-bottom: 1rem;
+  position: sticky;
+  top: 0;
+  background: linear-gradient(90deg, var(--surface-alt), var(--surface));
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  z-index: 10;
 }
 
 .header-top {
@@ -88,6 +128,10 @@ button.hamburger {
   border: none;
   font-size: 1.5rem;
   color: #f8f9fa;
+  transition: color 0.2s;
+}
+button.hamburger:hover {
+  color: var(--primary);
 }
 
 @media (min-width: 600px) {
@@ -103,4 +147,5 @@ button.hamburger {
   border-top: 1px solid #495057;
   font-size: 0.9rem;
   color: #adb5bd;
+  background: linear-gradient(90deg, var(--surface), var(--surface-alt));
 }
