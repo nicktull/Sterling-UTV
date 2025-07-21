@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import Navbar from './components/Navbar';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import Services from './pages/Services';
@@ -42,9 +43,9 @@ export default function App() {
 
   return (
     <>
-      <h1 className="site-title">Sterling UTV</h1>
-      <Navbar current={page} onNavigate={setPage} />
+      <Header current={page} onNavigate={setPage} />
       <main>{renderPage()}</main>
+      <Footer />
     </>
   );
 }
