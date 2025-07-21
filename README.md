@@ -1,11 +1,12 @@
 # Sterling-UTV
 
-This project contains a simple front end for the Sterling UTV shop. The site is built with React and Vite and showcases the products and services offered.
+This project contains a simple front end for the Sterling UTV shop. The site is built with React and Vite and showcases the products and services offered. You can search products and add them to a shopping cart.
 
 The main pages are:
 
 - **Home** – landing page for the shop
 - **Products** – browse items available for purchase
+- **Cart** – review items you've added
 - **Services** – details on repair and upgrade services
 - **About Us** – learn more about Sterling UTV
 - **Contact** – how to get in touch

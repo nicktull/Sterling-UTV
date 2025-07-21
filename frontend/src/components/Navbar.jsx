@@ -5,6 +5,7 @@ export default function Navbar({ current, onNavigate }) {
     { id: 'services', label: 'Services' },
     { id: 'about', label: 'About Us' },
     { id: 'contact', label: 'Contact' },
+    { id: 'cart', label: 'Cart' },
   ];
 
   return (
