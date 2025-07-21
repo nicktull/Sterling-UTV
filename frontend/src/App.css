@@ -22,3 +22,26 @@ nav.nav button.active {
 main {
   text-align: left;
 }
+
+section {
+  margin-bottom: 2rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: #f4f4f4;
+  border-radius: 4px;
+}
+
+input[type='text'] {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 300px;
+}
