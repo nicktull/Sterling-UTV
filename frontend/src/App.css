@@ -14,8 +14,12 @@ nav.nav {
 
 @media (max-width: 599px) {
   nav.nav {
+    display: none;
     flex-direction: column;
     margin-bottom: 1rem;
+  }
+  header.open nav.nav {
+    display: flex;
   }
 }
 

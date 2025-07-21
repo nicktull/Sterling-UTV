@@ -10,7 +10,7 @@ export default function Header({ current, onNavigate }) {
   };
 
   return (
-    <header className="header">
+    <header className={`header${open ? ' open' : ''}`}>
       <div className="header-top">
         <h1 className="site-title">Sterling UTV</h1>
         <button
@@ -21,7 +21,7 @@ export default function Header({ current, onNavigate }) {
           &#9776;
         </button>
       </div>
-      {open && <Navbar current={current} onNavigate={handleNavigate} />}
+      <Navbar current={current} onNavigate={handleNavigate} />
     </header>
   );
 }
