@@ -42,7 +42,7 @@ export default function App() {
 
   return (
     <>
-      <h1>Sterling UTV</h1>
+      <h1 className="site-title">Sterling UTV</h1>
       <Navbar current={page} onNavigate={setPage} />
       <main>{renderPage()}</main>
     </>
