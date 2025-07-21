@@ -25,12 +25,15 @@ export default function Products({ search, onSearch, onAdd }) {
         value={search}
         onChange={(e) => onSearch(e.target.value)}
       />
-      {categories.map((cat) => {
+      {categories.map((cat, idx) => {
         const items = grouped[cat] || [];
         if (items.length === 0) return null;
         return (
           <div key={cat}>
-            <h3>{cat}</h3>
+            <h3 className="category-heading" style={{ animationDelay: `${idx * 0.1}s` }}>
+              <span className="category-icon">&#9656;</span>
+              {cat}
+            </h3>
             <ul>
               {items.map((item) => (
                 <li key={item.id}>

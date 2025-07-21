@@ -1,11 +1,11 @@
 :root {
-  --primary: #ff8800;
-  --primary-dark: #ff7700;
-  --surface: #212529;
-  --surface-alt: #343a40;
+  --primary: #6dbf6d;
+  --primary-dark: #5aa75c;
+  --surface: #ffffff;
+  --surface-alt: #f0fff4;
   font-family: 'Montserrat', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.6;
-  color: #f8f9fa;
+  color: #222;
   background-color: var(--surface);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -26,7 +26,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-alt) 100%);
+  background-color: var(--surface);
 }
 
 h1 {
