@@ -1,9 +1,16 @@
 export default function Services() {
   const services = [
-    'Routine Maintenance',
-    'Lift Kit Installation',
-    'Diagnostics',
-    'Custom Fabrication',
+    'Wheel and Tire Kits',
+    'Audio Upgrades',
+    'LED Lighting',
+    'Custom Roll Cages',
+    'Engine and Clutch Tuning',
+    'Aftermarket Exhausts',
+    'Transmission Repair & Gear Reductions',
+    'Suspension Tuning',
+    'Oil Changes and General Maintenance',
+    'Aftermarket Seats',
+    'And More..',
   ];
 
   return (

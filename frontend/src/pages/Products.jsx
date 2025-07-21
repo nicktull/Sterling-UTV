@@ -1,9 +1,23 @@
 import products from '../data/products.js';
+import wheel from '../assets/icons/wheel.svg';
+import tire from '../assets/icons/tire.svg';
+import lift from '../assets/icons/lift.svg';
+import audio from '../assets/icons/audio.svg';
+import ecu from '../assets/icons/ecu.svg';
+import part from '../assets/icons/part.svg';
 
 export default function Products({ search, onSearch, onAdd }) {
   const filtered = products.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase()),
   );
+  const icons = {
+    Wheels: wheel,
+    Tires: tire,
+    'Lift Kits': lift,
+    Audio: audio,
+    'ECU Tuning': ecu,
+    'Performance Parts': part,
+  };
   const categories = Array.from(new Set(products.map((p) => p.category)));
   const grouped = filtered.reduce((acc, item) => {
     acc[item.category] = acc[item.category] || [];
@@ -25,21 +39,25 @@ export default function Products({ search, onSearch, onAdd }) {
         value={search}
         onChange={(e) => onSearch(e.target.value)}
       />
-      {categories.map((cat, idx) => {
+      {categories.map((cat) => {
         const items = grouped[cat] || [];
         if (items.length === 0) return null;
         return (
           <div key={cat}>
-            <h3 className="category-heading" style={{ animationDelay: `${idx * 0.1}s` }}>
-              <span className="category-icon">&#9656;</span>
-              {cat}
-            </h3>
+            <h3 className="category-heading">{cat}</h3>
             <ul>
               {items.map((item) => (
-                <li key={item.id}>
-                  <strong>{item.name}</strong> - ${item.price}
-                  <p>{item.description}</p>
-                  <button onClick={() => onAdd(item)}>Add to Cart</button>
+                <li key={item.id} className="product-item">
+                  <img
+                    className="product-icon"
+                    src={icons[item.category]}
+                    alt={item.category}
+                  />
+                  <div>
+                    <strong>{item.name}</strong> - ${item.price}
+                    <p>{item.description}</p>
+                    <button onClick={() => onAdd(item)}>Add to Cart</button>
+                  </div>
                 </li>
               ))}
             </ul>
