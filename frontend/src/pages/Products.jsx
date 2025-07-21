@@ -1,7 +1,8 @@
+import products from '../data/products.js';
+
 export default function Products({ search, onSearch, onAdd }) {
-  const items = ['Lift Kit', 'LED Lights', 'Roof Rack', 'Winch'];
-  const filtered = items.filter((item) =>
-    item.toLowerCase().includes(search.toLowerCase()),
+  const filtered = products.filter((p) =>
+    p.name.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
@@ -15,8 +16,9 @@ export default function Products({ search, onSearch, onAdd }) {
       />
       <ul>
         {filtered.map((item) => (
-          <li key={item}>
-            {item}{' '}
+          <li key={item.id}>
+            <strong>{item.name}</strong> - ${item.price}
+            <p>{item.description}</p>
             <button onClick={() => onAdd(item)}>Add to Cart</button>
           </li>
         ))}
