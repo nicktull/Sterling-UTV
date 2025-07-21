@@ -4,6 +4,12 @@ export default function Products({ search, onSearch, onAdd }) {
   const filtered = products.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase()),
   );
+  const categories = Array.from(new Set(products.map((p) => p.category)));
+  const grouped = filtered.reduce((acc, item) => {
+    acc[item.category] = acc[item.category] || [];
+    acc[item.category].push(item);
+    return acc;
+  }, {});
 
   return (
     <section>
@@ -19,15 +25,24 @@ export default function Products({ search, onSearch, onAdd }) {
         value={search}
         onChange={(e) => onSearch(e.target.value)}
       />
-      <ul>
-        {filtered.map((item) => (
-          <li key={item.id}>
-            <strong>{item.name}</strong> - ${item.price}
-            <p>{item.description}</p>
-            <button onClick={() => onAdd(item)}>Add to Cart</button>
-          </li>
-        ))}
-      </ul>
+      {categories.map((cat) => {
+        const items = grouped[cat] || [];
+        if (items.length === 0) return null;
+        return (
+          <div key={cat}>
+            <h3>{cat}</h3>
+            <ul>
+              {items.map((item) => (
+                <li key={item.id}>
+                  <strong>{item.name}</strong> - ${item.price}
+                  <p>{item.description}</p>
+                  <button onClick={() => onAdd(item)}>Add to Cart</button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
     </section>
   );
 }
