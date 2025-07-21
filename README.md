@@ -1,2 +1,13 @@
 # Sterling-UTV
-A serverless web application that display vendor services and products. Will support e-commerce and quotes from vendor
+
+This project contains a simple front end for the Sterling UTV shop. The site is built with React and Vite and showcases the products and services offered.
+
+The main pages are:
+
+- **Home** – landing page for the shop
+- **Products** – browse items available for purchase
+- **Services** – details on repair and upgrade services
+- **About Us** – learn more about Sterling UTV
+- **Contact** – how to get in touch
+
+Run the project locally with `npm run dev` from the `frontend` directory once dependencies are installed.
