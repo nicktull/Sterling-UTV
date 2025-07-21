@@ -1,13 +1,30 @@
 import products from '../data/products.js';
 
 export default function Products({ search, onSearch, onAdd }) {
-  const filtered = products.filter((p) =>
-    p.name.toLowerCase().includes(search.toLowerCase()),
+  const items = [
+    'Lift Kit',
+    'LED Lights',
+    'Roof Rack',
+    'Winch',
+    'Wheels',
+    'Tires',
+    'Lift Kits',
+    'Audio',
+    'ECU Tuning',
+    'Performance Parts',
+  ];
+  const filtered = items.filter((item) =>
+    item.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
     <section>
       <h2>Products</h2>
+      {/* Wheels, Tires, Lift Kits, Audio, ECU Tuning, Performance Parts and More Sold and Installed Here */}
+      <p>
+        Wheels, Tires, Lift Kits, Audio, ECU Tuning, Performance Parts and More
+        Sold and Installed Here.
+      </p>
       <input
         type="text"
         placeholder="Search products..."
