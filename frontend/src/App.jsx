@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -13,10 +13,20 @@ export default function App() {
   const [page, setPage] = useState('home');
   const [cart, setCart] = useState([]);
   const [search, setSearch] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleAdd = (item) => setCart([...cart, item]);
+  const handleAdd = (item) => {
+    setCart([...cart, item]);
+    setMessage(`${item.name} added to cart`);
+  };
   const handleRemove = (index) =>
     setCart(cart.filter((_, i) => i !== index));
+
+  useEffect(() => {
+    if (!message) return;
+    const timer = setTimeout(() => setMessage(''), 3000);
+    return () => clearTimeout(timer);
+  }, [message]);
 
   const renderPage = () => {
     switch (page) {
@@ -43,6 +53,7 @@ export default function App() {
 
   return (
     <>
+      {message && <div className="notification">{message}</div>}
       <Header current={page} onNavigate={setPage} />
       <main>{renderPage()}</main>
       <Footer />
