@@ -1,20 +1,8 @@
 import products from '../data/products.js';
 
 export default function Products({ search, onSearch, onAdd }) {
-  const items = [
-    'Lift Kit',
-    'LED Lights',
-    'Roof Rack',
-    'Winch',
-    'Wheels',
-    'Tires',
-    'Lift Kits',
-    'Audio',
-    'ECU Tuning',
-    'Performance Parts',
-  ];
-  const filtered = items.filter((item) =>
-    item.toLowerCase().includes(search.toLowerCase()),
+  const filtered = products.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
